@@ -1,2 +1,4 @@
-package onlineTest;public class Question {
+package onlineTest;
+
+public class Question {
 }
