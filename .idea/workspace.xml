@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adf46f71-6e08-4b21-9dda-0c55070731db" name="Changes" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/src/onlineTest/OnlineTestDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/onlineTest/Result.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/onlineTest/Subject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/onlineTest/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineTest/Answer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineTest/Answer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/onlineTest/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineTest/Question.java" afterDir="false" />
-    </list>
+    <list default="true" id="adf46f71-6e08-4b21-9dda-0c55070731db" name="Changes" comment="fixes config" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,7 +65,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670570186113</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fixes config">
+      <created>1670776957364</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1670776957364</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -89,6 +88,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="fixes config" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes config" />
   </component>
 </project>
