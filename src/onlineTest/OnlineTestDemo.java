@@ -347,15 +347,25 @@ public class OnlineTestDemo {
     private static void showDashboard() {
         System.out.println("------Online test---------");
         System.out.println("1.Test yechish");
+        System.out.println("2.Natijalarni ko`rish");
+        System.out.println("3.Chiqish");
 
         int choose = scanner.nextInt();
         switch (choose) {
             case 1 -> testSolution();
+            case 2 -> showResult();
+            case 3 -> currentUser = null;
             default -> {
                 System.out.println("Uzr !");
                 showDashboard();
             }
         }
+    }
+
+    private static void showResult() {
+        for (Subject subject : subjects)
+        System.out.println("Sizning oxirgi natijanlaringiz: " + subject.getName() + " balingiz: " + subject.getScore() );
+
     }
 
     private static void testSolution() {
@@ -398,7 +408,7 @@ public class OnlineTestDemo {
                             }
                         }
                     }*/
-
+                    subject.setScore(result);
                     if (question.getCheck()){
                         result++;
                     }
