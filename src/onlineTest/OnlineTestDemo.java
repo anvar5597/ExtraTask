@@ -14,7 +14,7 @@ public class OnlineTestDemo {
 // users
         //a111
         users.add(new User("Anvar", "admin", "12345", "1"));
-        users.add(new User("Anvar", "olimov@gmail.com", "12345", "2"));
+        users.add(new User("Anvar", "anvar", "12345", "2"));
         List<Answer> answers = new ArrayList<>();
         answers.add(new Answer("A.c^2 = a^2 + b^2", true));
         answers.add(new Answer("B.c^2 = a^2 - b^2", false));
@@ -27,16 +27,8 @@ public class OnlineTestDemo {
         subjects.add(new Subject("Matematika", question, 0));
         subjects.add(new Subject("Fizika", question1, 0));
 
-// test
-//        subjects.add(new Subject("Matematika",questions,1));
-//        subjects.add(new Subject("Matematika",questions,1));
-////question
-//        questions.add(new Question("1.Pifagor formulasi",answers,false, "A"));
-//        questions.add(new Question("1.Uchburchak yuzi",answers,false, "A"));
-//answer
-//        answers.add(new Answer())
-        currentUser = users.get(0);
-        showAdminDashboard();
+//        currentUser = users.get(0);
+//        showAdminDashboard();
         BoshEkran:
         while (true) {
             System.out.println("      Online test");
@@ -93,9 +85,7 @@ public class OnlineTestDemo {
         }
     }
 
-    private static void showDashboard() {
-
-    }
+    // admin
 
     private static void showAdminDashboard() {
         System.out.println("-------Admin oynasi-------------");
@@ -115,6 +105,7 @@ public class OnlineTestDemo {
             case 4 -> changeAnswer();
             case 5 -> showQuestion();
             case 7 -> showAllUsers();
+            case 0 -> currentUser = null;
 //            case 8 -> showAllUsersResult();
             default -> {
                 System.out.println("Uzur noto`g`ri raqam!");
@@ -323,7 +314,7 @@ public class OnlineTestDemo {
 
     private static void showAllUsers() {
         for (User user : users) {
-            if (user != null ) {
+            if (user != null) {
                 System.out.println(user.getId() + " " + user.getName());
             }
         }
@@ -351,8 +342,72 @@ public class OnlineTestDemo {
     }
 
 
+//   User
 
+    private static void showDashboard() {
+        System.out.println("------Online test---------");
+        System.out.println("1.Test yechish");
 
+        int choose = scanner.nextInt();
+        switch (choose) {
+            case 1 -> testSolution();
+            default -> {
+                System.out.println("Uzr !");
+                showDashboard();
+            }
+        }
+    }
+
+    private static void testSolution() {
+        System.out.println("Qaysi mavzudan yechmoqchisiz №: ");
+        for (Subject subject : subjects) {
+            System.out.println(subject.getId() + " " + subject.getName());
+        }
+        long ch = scanner.nextLong();
+        for (Subject subject : subjects) {
+            int result = 0;
+            if (subject.getId().equals(ch)) {
+                List<Question> questions1 = subject.getQuestionList();
+                int qcnt = 0;
+                for (Question question : questions1) {
+                    question.setCheck(false);
+                    System.out.println(++qcnt + " " + question.getText());
+                    List<Answer> answers = question.getAnswerList();
+                    for (Answer answer : answers) {
+                        if (answer != null) {
+                            System.out.print(answer.getText() + "\t");
+                        }
+                    }
+                    System.out.print("Javob №: ");
+                    int answer1 = scanner.nextInt();
+                    int anawerN = 0;
+                    String s2 ="";
+                    for (Answer answer : answers) {
+                        if (answer != null) {
+                            if(++anawerN == answer1 && answer.getStatus()) {
+                                result++;
+                                break;
+                            }
+                        }
+                    }
+                    /*for (Answer answer : answers) {
+                        if (answer != null) {
+                            if(answer.getText().equals(s2)) {
+                                question.setCheck(true);
+                                break;
+                            }
+                        }
+                    }*/
+
+                    if (question.getCheck()){
+                        result++;
+                    }
+                }
+                System.out.println("Sizning  natijangiz: " + result);
+            }
+        }
+        showDashboard();
+    }
 
 
 }
