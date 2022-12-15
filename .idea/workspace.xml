@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adf46f71-6e08-4b21-9dda-0c55070731db" name="Changes" comment="fixes config" />
+    <list default="true" id="adf46f71-6e08-4b21-9dda-0c55070731db" name="Changes" comment="13.12">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineTest/OnlineTestDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineTest/OnlineTestDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onlineTest/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/onlineTest/User.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,6 +46,34 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }
 }</component>
+  <component name="RunManager" selected="Application.OnlineTestDemo">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="ExtraTask" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OnlineTestDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="onlineTest.OnlineTestDemo" />
+      <module name="ExtraTask" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="onlineTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.OnlineTestDemo" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -72,7 +104,91 @@
       <option name="project" value="LOCAL" />
       <updated>1670776957364</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fixes config">
+      <created>1670776974392</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1670776974392</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fixes config">
+      <created>1670777072725</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1670777072725</updated>
+    </task>
+    <task id="LOCAL-00006" summary="1">
+      <created>1670778076411</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670778076411</updated>
+    </task>
+    <task id="LOCAL-00007" summary="1">
+      <created>1670778166460</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1670778166460</updated>
+    </task>
+    <task id="LOCAL-00008" summary="11">
+      <created>1670778222765</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1670778222765</updated>
+    </task>
+    <task id="LOCAL-00009" summary="11">
+      <created>1670778336900</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1670778336900</updated>
+    </task>
+    <task id="LOCAL-00010" summary="11">
+      <created>1670778440477</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1670778440477</updated>
+    </task>
+    <task id="LOCAL-00011" summary="11">
+      <created>1670778770580</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1670778770580</updated>
+    </task>
+    <task id="LOCAL-00012" summary="12.12">
+      <created>1670825423623</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1670825423623</updated>
+    </task>
+    <task id="LOCAL-00013" summary="12.12">
+      <created>1670860192053</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1670860192053</updated>
+    </task>
+    <task id="LOCAL-00014" summary="13.12">
+      <created>1670909682336</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1670909682336</updated>
+    </task>
+    <task id="LOCAL-00015" summary="13.12">
+      <created>1670913100035</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1670913100035</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -89,6 +205,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
     <MESSAGE value="fixes config" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixes config" />
+    <MESSAGE value="1" />
+    <MESSAGE value="11" />
+    <MESSAGE value="12.12" />
+    <MESSAGE value="13.12" />
+    <option name="LAST_COMMIT_MESSAGE" value="13.12" />
   </component>
 </project>

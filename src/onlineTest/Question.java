@@ -19,6 +19,9 @@ public class Question {
         this.userAnswer = userAnswer;
     }
 
+    public Long getId() {
+        return id;
+    }
     public String getText() {
         return text;
     }
@@ -49,6 +52,11 @@ public class Question {
 
     public void setUserAnswer(String userAnswer) {
         this.userAnswer = userAnswer;
+    }
+
+    @Override
+    public String toString() {
+        return  text;
     }
 }
 
