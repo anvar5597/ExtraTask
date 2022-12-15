@@ -1,6 +1,7 @@
 package onlineTest;
 
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class OnlineTestDemo {
     public static Scanner scanner = new Scanner(System.in);
@@ -16,12 +17,21 @@ public class OnlineTestDemo {
         users.add(new User("Anvar", "admin", "12345", "1"));
         users.add(new User("Anvar", "anvar", "12345", "2"));
         List<Answer> answers = new ArrayList<>();
-        answers.add(new Answer("A.c^2 = a^2 + b^2", true));
-        answers.add(new Answer("B.c^2 = a^2 - b^2", false));
-        answers.add(new Answer("C.c^3 = a^3 - b^3", false));
+        answers.add(new Answer("c^2 = a^2 + b^2", true));
+        answers.add(new Answer("c^2 = a^2 - b^2", false));
+        answers.add(new Answer("c^3 = a^3 - b^3", false));
+        List<Answer> answers1 = new ArrayList<>();
+        answers1.add(new Answer("S=a*b/2", true));
+        answers1.add(new Answer("S=a*b/2", false));
+        answers1.add(new Answer("S=a*b/2", false));
+        List<Answer> answers2 = new ArrayList<>();
+        answers2.add(new Answer("S=(a+b)/2", true));
+        answers2.add(new Answer("S=(a-b)/2", false));
+        answers2.add(new Answer("S=(a+b)/3", false));
         List<Question> question = new ArrayList<>();
         question.add(new Question("Pifagor formulasi", answers, false, "Anvar"));
-        question.add(new Question("Uchburchak yuzi", answers, false, "Anvar"));
+        question.add(new Question("Uchburchak yuzi", answers1, false, "Anvar"));
+        question.add(new Question("O`rta arifmetik", answers2, false, "Anvar"));
         List<Question> question1 = new ArrayList<>();
         question1.add(new Question("1.Pifagor formulasi", answers, false, "Anvar"));
         subjects.add(new Subject("Matematika", question, 0));
@@ -128,9 +138,16 @@ public class OnlineTestDemo {
                 for (Question question : s) {
                     System.out.println(++qcnt + " " + question.getText());
                     List<Answer> answers = question.getAnswerList();
+                    int cc = 0;
                     for (Answer answer : answers) {
                         if (answer != null) {
-                            System.out.print(answer.getText() + "\t");
+                            cc++;
+                            switch (cc){
+                                case 1 -> System.out.print("A.");
+                                case 2 -> System.out.print("B.");
+                                case 3 -> System.out.print("C.");
+                            }
+                            System.out.print(answer.getText() + "\t\t");
                         }
                     }
                     System.out.println();
@@ -363,13 +380,16 @@ public class OnlineTestDemo {
     }
 
     private static void showResult() {
-        for (Subject subject : subjects)
-        System.out.println("Sizning oxirgi natijanlaringiz: " + subject.getName() + " balingiz: " + subject.getScore() );
+        for (Subject subject : subjects) {
+            System.out.println("Sizning oxirgi natijanlaringiz: " + subject.getName() + " balingiz: " + subject.getScore());
+        }
 
     }
 
     private static void testSolution() {
         System.out.println("Qaysi mavzudan yechmoqchisiz №: ");
+        StringBuilder trueAnswer = new StringBuilder();
+        StringBuilder checkanswer = new StringBuilder();
         for (Subject subject : subjects) {
             System.out.println(subject.getId() + " " + subject.getName());
         }
@@ -383,37 +403,63 @@ public class OnlineTestDemo {
                     question.setCheck(false);
                     System.out.println(++qcnt + " " + question.getText());
                     List<Answer> answers = question.getAnswerList();
+                    int ccc = 0;
                     for (Answer answer : answers) {
+
                         if (answer != null) {
-                            System.out.print(answer.getText() + "\t");
+                            ccc++;
+                            switch (ccc) {
+                                case 1 -> {
+                                    System.out.print("A.");
+                                }case 2 -> {
+                                    System.out.print("B.");
+                                }case 3 -> {
+                                    System.out.print("C.");
+                                }
+                            }
+                            if (answer.getStatus()) {
+                                switch (ccc) {
+                                    case 1 -> {
+                                        trueAnswer.append("A" + " ");
+                                    }case 2 -> {
+                                        trueAnswer.append("B" + " ");
+                                    }case 3 -> {
+                                        trueAnswer.append("C" + " ");
+                                    }
+                                }
+                            }
+                            System.out.print(answer.getText() + "\t\t");
+                          /*  int randomNum = ThreadLocalRandom.current().nextInt(0, 2 + 1);
+                            System.out.print(answers.get(randomNum).getText() + "\t\t");*/
                         }
+
                     }
-                    System.out.print("Javob №: ");
+                    System.out.print("\nJavob №: ");
                     int answer1 = scanner.nextInt();
+                    switch (answer1) {
+                        case 1 -> checkanswer.append("A" + " ");
+                        case 2 -> checkanswer.append("B" + " ");
+                        case 3 -> checkanswer.append("C" + " ");
+                    }
                     int anawerN = 0;
-                    String s2 ="";
+                    String s2 = "";
                     for (Answer answer : answers) {
                         if (answer != null) {
-                            if(++anawerN == answer1 && answer.getStatus()) {
+                            if (++anawerN == answer1 && answer.getStatus()) {
                                 result++;
                                 break;
                             }
                         }
                     }
-                    /*for (Answer answer : answers) {
-                        if (answer != null) {
-                            if(answer.getText().equals(s2)) {
-                                question.setCheck(true);
-                                break;
-                            }
-                        }
-                    }*/
+
                     subject.setScore(result);
-                    if (question.getCheck()){
+                    if (question.getCheck()) {
                         result++;
                     }
                 }
                 System.out.println("Sizning  natijangiz: " + result);
+                System.out.println("Sizning javobingiz: " + checkanswer);
+                System.out.println("To`g`ri javob: " + trueAnswer);
             }
         }
         showDashboard();

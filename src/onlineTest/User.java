@@ -1,5 +1,7 @@
 package onlineTest;
 
+import javax.xml.crypto.Data;
+
 public class User {
     public static Long countObject = 0L;
     private final Long id ;
@@ -7,6 +9,8 @@ public class User {
     private String email;
     private String pasword;
     private String role;
+
+    private Data data;
 
     public User(String name, String email, String pasword, String role) {
         countObject++;
