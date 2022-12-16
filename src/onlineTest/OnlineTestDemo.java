@@ -40,8 +40,8 @@ public class OnlineTestDemo {
         List<Question> question = new ArrayList<>();
         question.add(new Question("Pifagor formulasi", answers, false, "Anvar"));
         question.add(new Question("Uchburchak yuzi", answers1, false, "Anvar"));
-        question.add(new Question("O`rta arifmetik", answers2, false, "Anvar"));
-        question.add(new Question("(a+b)^2 = ", answers3, false, "Anvar"));
+//        question.add(new Question("O`rta arifmetik", answers2, false, "Anvar"));
+//        question.add(new Question("(a+b)^2 = ", answers3, false, "Anvar"));
         List<Question> question1 = new ArrayList<>();
         question1.add(new Question("1.Pifagor formulasi", answers, false, "Anvar"));
         subjects.add(new Subject("Matematika", question, 0));
@@ -420,10 +420,13 @@ public class OnlineTestDemo {
                 for (Question question : questions1) {
                     question.setCheck(false);
                     System.out.println(++qcnt + " " + question.getText());
+
                     List<Answer> answers = question.getAnswerList();
                     int ccc = 0;
+                    List<Answer> answerList = new ArrayList<>(question.getAnswerList());
+                    List<Answer> answerList1 = new ArrayList<>();
                     for (Answer answer : answers) {
-
+                        int randomNum = ThreadLocalRandom.current().nextInt(0, answerList.size());
                         if (answer != null) {
                             ccc++;
                             switch (ccc) {
@@ -450,9 +453,13 @@ public class OnlineTestDemo {
                                     }
                                 }
                             }
-                            System.out.print(answer.getText() + "\t\t");
-                          /*  int randomNum = ThreadLocalRandom.current().nextInt(0, 2 + 1);
-                            System.out.print(answers.get(randomNum).getText() + "\t\t");*/
+
+                            String ans = answerList.get(randomNum).getText();
+                            answerList1.add(answerList.get(randomNum));
+                            answerList.removeIf(answer2 -> answer2.getText().equals(ans));
+                            System.out.print(ans + "\t\t");
+
+                          /*  System.out.print(answers.get(randomNum).getText() + "\t\t");*/
                         }
 
                     }
@@ -465,7 +472,7 @@ public class OnlineTestDemo {
                     }
                     int anawerN = 0;
                     String s2 = "";
-                    for (Answer answer : answers) {
+                    for (Answer answer : answerList1) {
                         if (answer != null) {
                             if (++anawerN == answer1 && answer.getStatus()) {
                                 result++;
