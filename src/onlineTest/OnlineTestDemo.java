@@ -27,8 +27,8 @@ public class OnlineTestDemo {
         answers.add(new Answer("c^3 = a^3 - b^3", false));
         List<Answer> answers1 = new ArrayList<>();
         answers1.add(new Answer("S=a*b/2", true));
-        answers1.add(new Answer("S=a*b/2", false));
-        answers1.add(new Answer("S=a*b/2", false));
+        answers1.add(new Answer("S=a*b/4", false));
+        answers1.add(new Answer("S=a+b/2", false));
         List<Answer> answers2 = new ArrayList<>();
         answers2.add(new Answer("S=(a+b)/2", true));
         answers2.add(new Answer("S=(a-b)/2", false));
@@ -40,8 +40,8 @@ public class OnlineTestDemo {
         List<Question> question = new ArrayList<>();
         question.add(new Question("Pifagor formulasi", answers, false, "Anvar"));
         question.add(new Question("Uchburchak yuzi", answers1, false, "Anvar"));
-//        question.add(new Question("O`rta arifmetik", answers2, false, "Anvar"));
-//        question.add(new Question("(a+b)^2 = ", answers3, false, "Anvar"));
+        question.add(new Question("O`rta arifmetik", answers2, false, "Anvar"));
+        question.add(new Question("(a+b)^2 = ", answers3, false, "Anvar"));
         List<Question> question1 = new ArrayList<>();
         question1.add(new Question("1.Pifagor formulasi", answers, false, "Anvar"));
         subjects.add(new Subject("Matematika", question, 0));
@@ -415,18 +415,39 @@ public class OnlineTestDemo {
         for (Subject subject : subjects) {
             int result = 0;
             if (subject.getId().equals(ch)) {
-                List<Question> questions1 = subject.getQuestionList();
+                List<Question> questions1 = new ArrayList<>(subject.getQuestionList());
+                List<Question> questions2 = new ArrayList<>();
+                System.out.print("Nechtalik test yechoqchisiz: ");
+                int chooeseQuestion = scanner.nextInt();
+                Random rand = new Random();
+                for (int i = chooeseQuestion; i >0; i--) {
+                    int randQ = rand.nextInt(i);
+                    String textQ = questions1.get(randQ).getText();
+                    List<Answer> answers = new ArrayList<>(questions1.get(randQ).getAnswerList());
+                    boolean bb = questions1.get(randQ).getCheck();
+                    String user = questions1.get(randQ).getUserAnswer();
+                    questions2.add(new Question(textQ,answers,bb,user));
+                    questions1.remove(randQ);
+                }
                 int qcnt = 0;
-                for (Question question : questions1) {
+                for (Question question : questions2) {
                     question.setCheck(false);
                     System.out.println(++qcnt + " " + question.getText());
 
-                    List<Answer> answers = question.getAnswerList();
                     int ccc = 0;
                     List<Answer> answerList = new ArrayList<>(question.getAnswerList());
-                    List<Answer> answerList1 = new ArrayList<>();
+                    List<Answer> answers = new ArrayList<>();
+                    int ansnum = 3;
+
+                    for (int i = 0; i < 3; i++) {
+                        int randn = rand.nextInt(ansnum--);
+                        String text = answerList.get(randn).getText();
+                        boolean b = answerList.get(randn).getStatus();
+                        Answer aaa = new Answer(text, b);
+                        answers.add(aaa);
+                        answerList.remove(randn);
+                    }
                     for (Answer answer : answers) {
-                        int randomNum = ThreadLocalRandom.current().nextInt(0, answerList.size());
                         if (answer != null) {
                             ccc++;
                             switch (ccc) {
@@ -454,12 +475,8 @@ public class OnlineTestDemo {
                                 }
                             }
 
-                            String ans = answerList.get(randomNum).getText();
-                            answerList1.add(answerList.get(randomNum));
-                            answerList.removeIf(answer2 -> answer2.getText().equals(ans));
-                            System.out.print(ans + "\t\t");
+                            System.out.print(answer.getText() + "\t\t");
 
-                          /*  System.out.print(answers.get(randomNum).getText() + "\t\t");*/
                         }
 
                     }
@@ -472,7 +489,7 @@ public class OnlineTestDemo {
                     }
                     int anawerN = 0;
                     String s2 = "";
-                    for (Answer answer : answerList1) {
+                    for (Answer answer : answers) {
                         if (answer != null) {
                             if (++anawerN == answer1 && answer.getStatus()) {
                                 result++;
@@ -490,7 +507,7 @@ public class OnlineTestDemo {
                 LocalDateTime date = LocalDateTime.now();
 
                 results.add(new Result(currentUser, subject, result, date));
-                System.out.println("Sizning  natijangiz: " + result + " " + 100. * result / (subject.getQuestionList().size()) + "%");
+                System.out.println("Sizning  natijangiz: " + result + " " + 100. * result / (questions2.size()) + "%");
                 System.out.println("Sizning javobingiz: " + checkanswer);
                 System.out.println("To`g`ri javob: " + trueAnswer);
             }

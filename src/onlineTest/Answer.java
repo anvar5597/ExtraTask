@@ -13,6 +13,11 @@ public class Answer {
         this.status = status;
     }
 
+    public Answer() {
+        countObject++;
+        this.id = countObject;
+    }
+
     public Long getId() {
         return id;
     }
