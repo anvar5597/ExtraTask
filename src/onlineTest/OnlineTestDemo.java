@@ -37,13 +37,20 @@ public class OnlineTestDemo {
         answers3.add(new Answer("a^2 + 2ab + b^2 ", true));
         answers3.add(new Answer("a^2 + ab + b^2", false));
         answers3.add(new Answer("a + 2ab + b", false));
+        List<Answer> answers4 = new ArrayList<>();
+        answers4.add(new Answer("(a+b)(a^2 + ab + b^2) ", true));
+        answers4.add(new Answer("(a-b)(a^2 + ab + b^2)", false));
+        answers4.add(new Answer("(a+b)(a + 2ab + b)", false));
         List<Question> question = new ArrayList<>();
         question.add(new Question("Pifagor formulasi", answers, false, "Anvar"));
         question.add(new Question("Uchburchak yuzi", answers1, false, "Anvar"));
         question.add(new Question("O`rta arifmetik", answers2, false, "Anvar"));
-        question.add(new Question("(a+b)^2 = ", answers3, false, "Anvar"));
+        question.add(new Question("(a+b)^2 = ...", answers3, false, "Anvar"));
+        question.add(new Question("a^3+b^3 = ... ", answers4, false, "Anvar"));
+
         List<Question> question1 = new ArrayList<>();
         question1.add(new Question("1.Pifagor formulasi", answers, false, "Anvar"));
+
         subjects.add(new Subject("Matematika", question, 0));
         subjects.add(new Subject("Fizika", question1, 0));
 
